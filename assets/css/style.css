@@ -1,0 +1,346 @@
+/* ---------------------------------------------------
+   GLOBAL THEME — Sleipner A/R Kontrollsystemer 
+   Felles stil for NAS, Kjemi, Oljelogg og Startside
+--------------------------------------------------- */
+
+/* ---------- COLORS & VARIABLES ---------- */
+:root {
+  --bg: #0b1120;
+  --bg-alt: #020617;
+
+  --panel: #0f172a;
+  --panel-soft: #111827;
+  --panel-lighter: #1f2937;
+
+  --border: #1e293b;
+  --border-soft: #334155;
+
+  --text: #e5e7eb;
+  --text-soft: #cbd5e1;
+  --muted: #9ca3af;
+
+  --accent: #0ea5e9;
+  --accent-soft: rgba(14,165,233,0.14);
+  --accent-strong: #38bdf8;
+  --accent-soft2: rgba(56,189,248,0.18);
+}
+
+/* ---------- GLOBAL RESET ---------- */
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+/* ---------- BASE LAYOUT ---------- */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  background: radial-gradient(circle at top, #1f2937 0, #020617 48%, #020617 100%);
+  color: var(--text);
+  overflow-x: hidden;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* ---------- GLOBAL LINKS ---------- */
+a {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+/* ==================================================
+   TOPBAR (Used on ALL systems)
+================================================== */
+.topbar {
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 8px 12px;
+  border-bottom: 1px solid rgba(148,163,184,0.30);
+
+  background: linear-gradient(to right, #020617, #020617 70%);
+  box-shadow:
+    0 14px 34px rgba(15,23,42,0.9),
+    0 0 0 1px rgba(15,23,42,1);
+  z-index: 10;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.topbar-logo-wrap {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  padding: 3px;
+
+  background:
+    radial-gradient(circle at top, rgba(56,189,248,0.65), transparent 70%) #020617;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow:
+    0 0 12px rgba(56,189,248,0.55),
+    0 0 0 1px rgba(15,23,42,1);
+}
+
+.topbar-logo {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 10px;
+}
+
+.topbar-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.topbar-title {
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.topbar-sub,
+.topbar-subtitle {
+  font-size: 11px;
+  color: var(--muted);
+}
+
+.topbar-right {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-left: 1px solid rgba(51,65,85,0.9);
+  padding-left: 10px;
+  gap: 4px;
+}
+
+.help-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid var(--accent-strong);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent-strong);
+  background: #020617;
+  font-size: 17px;
+  font-weight: 700;
+
+  box-shadow: 0 0 8px rgba(56,189,248,0.35);
+}
+
+.topbar-version {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: #020617;
+  border: 1px solid rgba(56,189,248,0.9);
+  color: var(--accent-strong);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+/* ==================================================
+   MAIN LAYOUT / CONTAINERS
+================================================== */
+
+.main-centered {
+  flex: 1 1 auto;
+  padding: 14px;
+  display: flex;
+  justify-content: center;
+}
+
+.shared-container {
+  width: 100%;
+  max-width: 960px;
+
+  background:
+    radial-gradient(circle at top left, rgba(56,189,248,0.12), transparent 60%)
+    var(--panel-soft);
+
+  border-radius: 14px;
+  padding: 18px 16px 24px;
+
+  border: 1px solid rgba(51,65,85,0.95);
+  box-shadow:
+    0 18px 45px rgba(15,23,42,0.9),
+    0 0 0 1px rgba(15,23,42,1);
+}
+
+/* Section titles */
+.shared-section-title {
+  margin-top: 24px;
+  margin-bottom: 6px;
+  font-size: 16px;
+  color: var(--accent-strong);
+}
+
+.shared-p,
+.shared-ul {
+  font-size: 14px;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+
+.shared-ul {
+  padding-left: 18px;
+}
+
+/* ==================================================
+   MENU CARDS (Startside)
+================================================== */
+
+.menu-wrapper {
+  width: 100%;
+  max-width: 960px;
+  padding: 40px 20px 60px;
+}
+
+.menu-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px,1fr));
+  gap: 20px;
+  margin-top: 28px;
+}
+
+.menu-card {
+  display: block;
+  background: radial-gradient(circle at top left, var(--accent-soft2), transparent 55%)
+              var(--panel);
+
+  padding: 22px 24px;
+  border-radius: 18px;
+
+  border: 1px solid rgba(148,163,184,0.35);
+  box-shadow:
+    0 18px 45px rgba(15,23,42,0.85),
+    0 0 0 1px rgba(15,23,42,0.95);
+
+  transition: 0.12s ease-out;
+}
+
+.menu-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent-strong);
+  box-shadow:
+    0 24px 60px rgba(56,189,248,0.35),
+    0 0 0 1px rgba(15,23,42,1);
+}
+
+.menu-tag {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 8px;
+}
+
+.menu-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--accent-strong);
+  margin-bottom: 6px;
+}
+
+.menu-desc {
+  font-size: 14px;
+  color: var(--text-soft);
+}
+
+/* ==================================================
+   BUTTONS (global)
+================================================== */
+
+.btn {
+  padding: 9px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--border-soft);
+  background: var(--panel-soft);
+  color: var(--text);
+  cursor: pointer;
+  transition: 0.15s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.btn:hover {
+  background: #111827;
+  transform: translateY(-1px);
+  box-shadow: 0 10px 26px rgba(15,23,42,0.8);
+}
+
+.btn-back {
+  color: var(--text);
+}
+
+.btn-active {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  border-color: #16a34a;
+  color: #020617;
+}
+
+/* ==================================================
+   FOOTER
+================================================== */
+
+.footer {
+  text-align: center;
+  padding: 12px 8px 16px;
+  color: var(--muted);
+  font-size: 12px;
+  border-top: 1px solid rgba(15,23,42,0.9);
+  background: #020617;
+}
+
+/* ==================================================
+   RESPONSIVE BREAKPOINTS
+================================================== */
+
+@media (max-width: 480px) {
+  .shared-container {
+    border-radius: 0;
+    max-width: 100%;
+    margin: 0;
+    padding: 14px 10px 20px;
+    box-shadow: none;
+  }
+
+  .shared-section-title {
+    font-size: 15px;
+  }
+
+  .shared-p,
+  .shared-ul {
+    font-size: 13px;
+  }
+}
+
+@media (min-width: 600px) {
+  .shared-container {
+    padding: 22px 20px 28px;
+  }
+}
